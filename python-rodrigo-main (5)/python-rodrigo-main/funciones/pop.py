@@ -5,3 +5,4 @@ for k in range(len(lista)):
     if lista[k-1]==e:
         lista.pop(k-1)
 print(lista)
++-

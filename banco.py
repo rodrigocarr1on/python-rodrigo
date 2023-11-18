@@ -1,19 +1,21 @@
-usuario=[['123456','1232','100000','5000'],['456789','4554','400000','2500']]
+usuario=[['123456','1232','100000','5000'],['456789','4554','400000','2500'],['789456','2585','250000','3500']]
+ndu=-1
 def inicioS():                                  #inicio de sesion
     inicio=False
+    tarjeta=input('ingrese numero de tarjeta: ')
     for i in usuario:
-        tarjeta=input('ingrese numero de tarjeta: ')
         if i[0]==tarjeta:
-                inicio=True
-        pin=input('ingrese su pin: ')
-        if i[1]==pin:
+            ndu=usuario.index(i)
             inicio=True
-            print('ingresando...')
-            return inicio
-        else:
+            pin=input('ingrese su pin: ')
+            if i[1]==pin:
+                inicio=True
+                print('ingresando...')
+                return inicio
+            else:
                 print('pin incorrecto')
-        if inicio==False:
-            print('tarjeta incorrecta')
+    if inicio==False:
+        print('tarjeta incorrecta')
         
 
 
@@ -31,7 +33,10 @@ def monedaD():                       #eleccion de moneda
 menu=['1.retiro','2.giro','3.ingreso','4.consulta de saldo','5.salir']
 def menup():
     print(menu)
-    resp=input('ingrese una opcion: ')
+    resp=int(input('ingrese una opcion: '))
+    if resp>5  or resp<0:
+        print('ingrese una opcion valida')
+        menup()
     return resp
 
 def retiro1(mond):
@@ -63,15 +68,30 @@ def giro1(mond):
                 print(saldo)
                 break
 
+def saldo(mond):
+    eleccion=mond
+    return( usuario[ndu][eleccion])
+    
+
+
+
+
+
+
+
 
 
 if inicioS():
     operacion=menup()
     mon=monedaD()
-    if operacion=='1':
+    if operacion==1:
         retiro1(mon)
-    elif operacion=='2':
+    elif operacion==3:
         retiro2(mon)
+    elif operacion==2:
+        giro1(mon)
+    elif operacion==4:
+        print(saldo(mon))
 
 
 respuesta=(input('desea realizar otra accion?:'))
@@ -79,3 +99,4 @@ if (respuesta=='si'):
             seguir=True
 else:
             seguir=False
+            print('adios')
