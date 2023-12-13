@@ -16,4 +16,4 @@ class venta:
     def __init__(self, fecha, mdp,producto, vend_comp,)   #mdp=metodo de pago
 
 class producto:
-    def __init__(self,)
+    def __init__(self,ID,tipo,c_u,stock,nro_stock,mod_precio)
