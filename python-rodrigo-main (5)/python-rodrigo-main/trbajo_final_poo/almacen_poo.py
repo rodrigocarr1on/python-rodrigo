@@ -13,4 +13,7 @@ class vendedor:
         self.salario=salario
     
 class venta:
-    def __init__(self, fecha, mdp,producto, v)   #mdp=metodo de pago
+    def __init__(self, fecha, mdp,producto, vend_comp,)   #mdp=metodo de pago
+
+class producto:
+    def __init__(self,)
