@@ -3,6 +3,7 @@ from iniciosesion import inicioS
 # https://github.com/ParthJadhav/Tkinter-Designer
 
 usuarios=[["pedro","12345"]]
+ingresado=[['','']]
 from pathlib import Path
 
 # from tkinter import *
@@ -137,7 +138,7 @@ def login():
     usuario=entry_1.get()
     pin=entry_2.get()
     inicioS(usuario, pin)
-    if True:
+    if inicioS:
         w2.mainloop()
         w1.destroy()
     else:
@@ -149,7 +150,7 @@ button_3 = Button(
     image=button_image_3,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_3 clicked"), #=login()
+    command=login()
     relief="flat"
 )
 button_3.place(
